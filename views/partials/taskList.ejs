@@ -1,0 +1,33 @@
+<div class="container mt-3">
+    <ul class="list-group">
+        <% tasks.forEach(task => { %>
+        <div class="d-flex justify-content-between">
+            <a href="/tasks/<%= task._id %>" class="flex-fill me-2 <% if(task.status) { %> checked <% } %> ">
+                <li class="mb-1 list-group-item list-group-item-action <% if(task.status) {%> disabled <% }%>  <% if(task._id === id) { %> active <% } %>  ">
+                    <label class="<% if(task.status) {%> checked <% }%>">
+                       <!-- <input type="checkbox" class="form-check-input me-2 <% if(task.status) {%> checked <% } %>" id="<%= task._id %> " <% if(task.status) { %> checked <% } %> >-->
+                        <% if(task.status) { %> 
+                            <i class="me-2 bi bi-check-circle-fill <% if(task._id === id) { %> text-white <% } else {%> text-primary <% } %> "></i>
+                        <% } else {%> 
+                            <i class="me-2 bi bi-circle text-primary <% if(task._id === id) { %> text-white <% } else {%> text-primary <% } %> "></i>
+                        <% } %> 
+                        <%= task.title %>
+                    </label>
+                </li>
+            </a>
+            <div>
+                <a href="/tasks/update/<%= task._id %>">
+                    <div class="btn btn-info">
+                        <i class="bi bi-pencil-fill"></i>
+                    </div>
+                </a>
+                <a href="/tasks/delete/<%= task._id %>">
+                    <div class="btn btn-danger">
+                        <i class="bi bi-trash-fill"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <% }); %>
+    </ul>
+</div>

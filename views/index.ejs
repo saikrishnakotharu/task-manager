@@ -1,0 +1,12 @@
+<%- include('./partials/header') %> 
+
+<form class="container mt-5" action="/api/tasks" method="post">
+    <div class="d-flex">
+        <input type="text" name="title" class="form-control me-2" placeholder="Title...">
+        <input type="submit" class="btn btn-primary btn-md" value="Add Task">
+    </div>
+</form>
+
+<%- include('./partials/taskList') %> 
+
+<%- include('./partials/footer') %> 
